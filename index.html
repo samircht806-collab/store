@@ -1,311 +1,94 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samir AI Store</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
-    }
-
-    body {
-      background-color: #f5f5f7;
-      color: #1d1d1f;
-    }
-
-    header {
-      background-color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: 600;
-      color: #0071e3;
-    }
-
-    .cart-btn {
-      position: relative;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    .cart-count {
-      position: absolute;
-      top: -5px;
-      right: -10px;
-      background: #0071e3;
-      color: #fff;
-      border-radius: 50%;
-      font-size: 12px;
-      padding: 2px 6px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .product {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .product:hover {
-      transform: translateY(-4px);
-    }
-
-    .product img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .product h3 {
-      margin: 10px 0 5px;
-      font-size: 18px;
-    }
-
-    .product p {
-      color: #86868b;
-      margin-bottom: 10px;
-    }
-
-    .product button {
-      background: #0071e3;
-      color: #fff;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-bottom: 15px;
-      transition: background 0.3s;
-    }
-
-    .product button:hover {
-      background: #005bb5;
-    }
-
-    /* سلة المشتريات */
-    .cart-panel {
-      position: fixed;
-      right: -400px;
-      top: 0;
-      width: 350px;
-      height: 100%;
-      background: #fff;
-      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-      padding: 20px;
-      transition: right 0.3s;
-      display: flex;
-      flex-direction: column;
-      z-index: 2000;
-    }
-
-    .cart-panel.open {
-      right: 0;
-    }
-
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .cart-header h2 {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .cart-items {
-      flex: 1;
-      overflow-y: auto;
-    }
-
-    .cart-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 10px;
-    }
-
-    .cart-item img {
-      width: 50px;
-      border-radius: 8px;
-    }
-
-    .cart-item-info {
-      flex: 1;
-      margin-left: 10px;
-    }
-
-    .cart-item-info h4 {
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-
-    .cart-item-info p {
-      color: #86868b;
-      font-size: 13px;
-    }
-
-    .remove-btn {
-      background: none;
-      border: none;
-      color: #ff3b30;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .cart-footer {
-      border-top: 1px solid #eee;
-      padding-top: 10px;
-    }
-
-    .cart-total {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    .checkout-btn {
-      width: 100%;
-      background: #0071e3;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-  </style>
+  <title>Samir AI Official Store</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header>
-    <div class="logo">Samir AI Store</div>
-    <button class="cart-btn" id="cartButton">
-      🛒
-      <span class="cart-count" id="cartCount">0</span>
-    </button>
+  <header class="navbar">
+    <div class="logo"> Samir AI Official</div>
+    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
   </header>
 
-  <div class="products" id="productList">
-    <!-- سيتم إنشاء المنتجات تلقائيًا -->
+  <section class="hero">
+    <h1>Smart Tools for Smart People</h1>
+    <p>متجر ذكي بتصميم مستوحى من Apple</p>
+  </section>
+
+  <main class="products">
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="Smart Assistant" />
+      <h2>Smart Assistant</h2>
+      <p>مساعد ذكي لتحسين إنتاجيتك اليومية.</p>
+      <span class="price">99$</span>
+      <button onclick="addToCart('Smart Assistant', 99)">أضف للسلة</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="AI Planner" />
+      <h2>AI Planner</h2>
+      <p>منظم ذكي لإدارة وقتك بذكاء.</p>
+      <span class="price">49$</span>
+      <button onclick="addToCart('AI Planner', 49)">أضف للسلة</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="Pro Vision Tool" />
+      <h2>Pro Vision Tool</h2>
+      <p>أداة احترافية لمبدعين المستقبل.</p>
+      <span class="price">129$</span>
+      <button onclick="addToCart('Pro Vision Tool', 129)">أضف للسلة</button>
+    </div>
+  </main>
+
+  <div id="cart" class="cart hidden">
+    <h3>🛍️ سلة المشتريات</h3>
+    <ul id="cart-items"></ul>
+    <p id="total">الإجمالي: $0</p>
+    <button class="checkout-btn" onclick="window.location.href='checkout.html'">
+      إتمام الشراء
+    </button>
   </div>
 
-  <div class="cart-panel" id="cartPanel">
-    <div class="cart-header">
-      <h2>سلة المشتريات</h2>
-      <button id="closeCart">✖</button>
-    </div>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="cart-footer">
-      <div class="cart-total">
-        <span>الإجمالي:</span>
-        <span id="totalPrice">0$</span>
-      </div>
-      <button class="checkout-btn">إتمام الشراء</button>
-    </div>
-  </div>
+  <footer>
+    <p>© 2025 Samir AI Official. Smart Tools for Smart People.</p>
+  </footer>
 
   <script>
-    const products = [
-      { id: 1, name: "iPhone 15 Pro", price: 1199, img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-pro-family-hero" },
-      { id: 2, name: "MacBook Air M3", price: 1499, img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/macbook-air-m3" },
-      { id: 3, name: "Apple Watch Ultra 2", price: 799, img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-ultra-2" },
-      { id: 4, name: "AirPods Pro 2", price: 249, img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-pro-2" },
-    ];
-
-    const productList = document.getElementById('productList');
-    const cartPanel = document.getElementById('cartPanel');
-    const cartButton = document.getElementById('cartButton');
-    const closeCart = document.getElementById('closeCart');
-    const cartItemsContainer = document.getElementById('cartItems');
-    const cartCount = document.getElementById('cartCount');
-    const totalPriceEl = document.getElementById('totalPrice');
-
     let cart = [];
 
-    function renderProducts() {
-      products.forEach(product => {
-        const div = document.createElement('div');
-        div.classList.add('product');
-        div.innerHTML = `
-          <img src="${product.img}" alt="${product.name}">
-          <h3>${product.name}</h3>
-          <p>${product.price}$</p>
-          <button onclick="addToCart(${product.id})">أضف إلى السلة</button>
-        `;
-        productList.appendChild(div);
-      });
-    }
-
-    function addToCart(id) {
-      const product = products.find(p => p.id === id);
-      const existing = cart.find(item => item.id === id);
-      if (existing) {
-        existing.qty++;
-      } else {
-        cart.push({ ...product, qty: 1 });
-      }
-      updateCart();
-    }
-
-    function removeFromCart(id) {
-      cart = cart.filter(item => item.id !== id);
+    function addToCart(name, price) {
+      cart.push({ name, price });
       updateCart();
     }
 
     function updateCart() {
-      cartItemsContainer.innerHTML = '';
-      let total = 0;
-      cart.forEach(item => {
-        total += item.price * item.qty;
-        const div = document.createElement('div');
-        div.classList.add('cart-item');
-        div.innerHTML = `
-          <img src="${item.img}" alt="">
-          <div class="cart-item-info">
-            <h4>${item.name}</h4>
-            <p>${item.price}$ × ${item.qty}</p>
-          </div>
-          <button class="remove-btn" onclick="removeFromCart(${item.id})">🗑</button>
-        `;
-        cartItemsContainer.appendChild(div);
-      });
+      const cartCount = document.getElementById("cart-count");
+      const cartItems = document.getElementById("cart-items");
+      const total = document.getElementById("total");
+
       cartCount.textContent = cart.length;
-      totalPriceEl.textContent = total + "$";
+      cartItems.innerHTML = "";
+      let sum = 0;
+
+      cart.forEach(item => {
+        sum += item.price;
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - $${item.price}`;
+        cartItems.appendChild(li);
+      });
+
+      total.textContent = `الإجمالي: $${sum}`;
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    cartButton.addEventListener('click', () => cartPanel.classList.add('open'));
-    closeCart.addEventListener('click', () => cartPanel.classList.remove('open'));
-
-    renderProducts();
+    function toggleCart() {
+      document.getElementById("cart").classList.toggle("hidden");
+    }
   </script>
+
 </body>
-  </html>
+</html>
