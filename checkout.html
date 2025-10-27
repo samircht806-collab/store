@@ -1,179 +1,59 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إتمام الشراء - Samir AI Store</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f5f5f7;
-      margin: 0;
-      color: #1d1d1f;
-    }
-
-    header {
-      text-align: center;
-      padding: 25px 0 15px;
-      background: #fff;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    }
-
-    header h1 {
-      font-size: 22px;
-      font-weight: 600;
-      margin: 0;
-    }
-
-    .checkout-container {
-      max-width: 480px;
-      margin: 30px auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    }
-
-    .summary {
-      border-bottom: 1px solid #e5e5e5;
-      padding-bottom: 20px;
-      margin-bottom: 25px;
-    }
-
-    .summary h2 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .item img {
-      width: 45px;
-      height: 45px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .item-info {
-      flex-grow: 1;
-      margin-right: 10px;
-    }
-
-    .item-info p {
-      margin: 0;
-    }
-
-    .item-info strong {
-      font-size: 15px;
-    }
-
-    .total {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 15px;
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    form label {
-      display: block;
-      margin: 12px 0 5px;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    form input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 15px;
-      margin-bottom: 8px;
-      transition: border-color 0.2s;
-    }
-
-    form input:focus {
-      border-color: #0071e3;
-      outline: none;
-    }
-
-    button {
-      width: 100%;
-      background: #0071e3;
-      color: white;
-      border: none;
-      padding: 15px;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 600;
-      margin-top: 15px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background: #005bb5;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إتمام الشراء | Samir AI Official</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>إتمام الشراء</h1>
+
+  <header class="navbar">
+    <div class="logo"> Samir AI Official</div>
   </header>
 
-  <div class="checkout-container">
-    <div class="summary">
-      <h2>ملخص الطلب</h2>
+  <main class="checkout-container">
+    <h1>ملخص الطلب</h1>
+    <ul id="order-summary"></ul>
+    <p id="total-summary">الإجمالي: $0</p>
 
-      <div class="item">
-        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-blue-titanium-select-2023" alt="iPhone 15 Pro">
-        <div class="item-info">
-          <strong>iPhone 15 Pro</strong>
-          <p>1199$</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-m3-13-midnight-select-202403" alt="MacBook Air M3">
-        <div class="item-info">
-          <strong>MacBook Air M3</strong>
-          <p>1499$</p>
-        </div>
-      </div>
-
-      <div class="total">
-        <span>الإجمالي</span>
-        <span>2698$</span>
-      </div>
-    </div>
-
-    <form>
+    <form class="payment-form" onsubmit="submitOrder(event)">
+      <h2>معلومات الدفع</h2>
       <label>الاسم الكامل</label>
-      <input type="text" placeholder="اكتب اسمك الكامل" required>
-
+      <input type="text" required />
       <label>البريد الإلكتروني</label>
-      <input type="email" placeholder="example@email.com" required>
-
-      <label>عنوان الشحن</label>
-      <input type="text" placeholder="اكتب عنوانك بالتفصيل" required>
-
+      <input type="email" required />
       <label>رقم البطاقة</label>
-      <input type="text" placeholder="**** **** **** 1234" required>
-
-      <label>تاريخ الانتهاء</label>
-      <input type="text" placeholder="MM / YY" required>
-
-      <label>رمز الأمان (CVV)</label>
-      <input type="text" placeholder="123" required>
-
-      <button type="submit">تأكيد الدفع</button>
+      <input type="text" maxlength="16" required />
+      <button type="submit">تأكيد الشراء</button>
     </form>
-  </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Samir AI Official. Smart Tools for Smart People.</p>
+  </footer>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const orderList = document.getElementById("order-summary");
+    const totalSummary = document.getElementById("total-summary");
+
+    let total = 0;
+    cart.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `${item.name} - $${item.price}`;
+      orderList.appendChild(li);
+      total += item.price;
+    });
+
+    totalSummary.textContent = `الإجمالي: $${total}`;
+
+    function submitOrder(e) {
+      e.preventDefault();
+      localStorage.removeItem("cart");
+      window.location.href = "thankyou.html";
+    }
+  </script>
+
 </body>
-          </html>
+</html>
