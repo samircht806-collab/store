@@ -1,74 +1,164 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  margin: 0;
-  background: #f8f8f8;
-  color: #111;
-}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Store Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+    }
 
-header {
-  background: white;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.logo {
-  font-size: 1.2rem;
-  font-weight: 600;
-}
+    .logo {
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #000;
+    }
 
-nav a {
-  margin: 0 12px;
-  color: #333;
-  text-decoration: none;
-}
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #1d1d1f;
+      font-size: 0.95rem;
+    }
 
-nav a:hover {
-  color: #0071e3;
-}
+    nav a:hover {
+      color: #0071e3;
+    }
 
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 40px;
-}
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #fff;
+    }
 
-.product {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: transform 0.2s ease;
-}
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
 
-.product:hover {
-  transform: translateY(-5px);
-}
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+    }
 
-.product img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      padding: 40px 20px;
+    }
 
-.product h3 {
-  font-size: 1rem;
-  margin: 10px 0;
-}
+    .product {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
 
-.product button {
-  background: #0071e3;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-}
+    .product:hover {
+      transform: translateY(-5px);
+    }
 
-.product button:hover {
-  background: #005bb5;
-}
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product h3 {
+      margin: 15px 0 5px;
+      font-size: 1.1rem;
+    }
+
+    .product p {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .product button {
+      background: #0071e3;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    .product button:hover {
+      background: #005bb5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f5f5f7;
+      color: #6e6e73;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"> Store</div>
+    <nav>
+      <a href="#">المنتجات</a>
+      <a href="#">الدعم</a>
+      <a href="#">السلة 🛒</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>مرحبًا بك في متجر Apple</h1>
+    <p>اكتشف أحدث الأجهزة بأفضل جودة وتصميم.</p>
+  </section>
+
+  <section class="products">
+    <div class="product">
+      <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-finish-select-202309-6-1inch-blacktitanium" alt="iPhone">
+      <h3>iPhone 15 Pro</h3>
+      <p>ابتداءً من 999$</p>
+      <button>أضف إلى السلة</button>
+    </div>
+
+    <div class="product">
+      <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-13-midnight-gallery1-202402" alt="MacBook Air">
+      <h3>MacBook Air</h3>
+      <p>ابتداءً من 1199$</p>
+      <button>أضف إلى السلة</button>
+    </div>
+
+    <div class="product">
+      <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/watch-ultra2-hero-trail-202309" alt="Apple Watch">
+      <h3>Apple Watch Ultra 2</h3>
+      <p>ابتداءً من 799$</p>
+      <button>أضف إلى السلة</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Samir AI Official. Smart Tools for Smart People.</p>
+  </footer>
+
+</body>
+  </html>
